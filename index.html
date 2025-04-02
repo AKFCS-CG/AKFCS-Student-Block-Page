@@ -19,10 +19,13 @@
       max-width: 600px;
       margin: 0 auto;
     }
+    .logo {
+      max-width: 150px;
+      margin-bottom: 20px;
+    }
     h1 {
       font-size: 2em;
     }
-    
     p {
       font-size: 1.2em;
     }
@@ -34,10 +37,10 @@
 </head>
 <body>
   <div class="container">
+    <img src="https://www.akfcs.org/wp-content/uploads/2021/05/abby-kelley-foster-logo.png" alt="Abby Kelley Foster Logo" class="logo">
     <h1>🚫Oops! This Chromebook Belongs to Someone Else!</h1>
     <p>Looks like you’re trying to sign in on a device that’s not assigned to you.</p>
     <div class="user">
-      <!-- JavaScript will extract and show ?user= info -->
       <p id="userInfo"></p>
     </div>
   </div>
@@ -49,13 +52,12 @@
       document.getElementById("userInfo").textContent = `This device is brought to: ${user}`;
     }
   </script>
- <p>Not sure if this Chromebook is yours?</p>
- <p>No worries! Just check the label on your device, or ask your teacher for help! 😊</p>
-   <p>🔍 Tip: You can also check on the login screen.
-Press Alt + V and you’ll see the Asset ID, Chrome OS version, and serial number in the top-right corner.
 
-Please sign out and log in on your assigned Chromebook.</p>
+  <p>Not sure if this Chromebook is yours?</p>
+  <p>No worries! Just check the label on your device, or ask your teacher for help! 😊</p>
+  <p>🔍 Tip: You can also check on the login screen.
+  Press Alt + V and you’ll see the Asset ID, Chrome OS version, and serial number in the top-right corner.
 
-  
+  Please sign out and log in on your assigned Chromebook.</p>
 </body>
 </html>
