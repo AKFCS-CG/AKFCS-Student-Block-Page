@@ -33,9 +33,8 @@
 </head>
 <body>
   <div class="container">
-    <h1>🚫 Access Denied</h1>
-    <p>This device is not assigned to you.</p>
-    <p>Please sign out and log in with your assigned device.</p>
+    <h1>🚫Oops! This Chromebook Belongs to Someone Else!</h1>
+    <p>Looks like you’re trying to sign in on a device that’s not assigned to you.</p>
     <div class="user">
       <!-- JavaScript will extract and show ?user= info -->
       <p id="userInfo"></p>
@@ -46,8 +45,16 @@
     const params = new URLSearchParams(window.location.search);
     const user = params.get("user");
     if (user) {
-      document.getElementById("userInfo").textContent = `Detected user: ${user}`;
+      document.getElementById("userInfo").textContent = `This device is brought to: ${user}`;
     }
   </script>
+ <p>Not sure if this Chromebook is yours?</p>
+ <p>No worries! Just check the label on your device, or ask your teacher for help! 😊</p>
+   <p>🔍 Tip: You can also check on the login screen.
+Press Alt + V and you’ll see the Asset ID, Chrome OS version, and serial number in the top-right corner.
+
+Please sign out and log in on your assigned Chromebook.</p>
+
+  
 </body>
 </html>
