@@ -46,10 +46,9 @@
   </div>
 
   <script>
-    const params = new URLSearchParams(window.user.search);
-    const user = params.get("user");
-    if (user) {
-      document.getElementById("userInfo").textContent = `This device is brought to: ${user}`;
+const params = new URLSearchParams(window.location.search);
+const user = params.get("user");
+if (user) document.getElementById("userInfo").textContent = `User: ${user}`;
     }
   </script>
 
@@ -61,4 +60,5 @@
   Please sign out and log in on your assigned Chromebook.</p>
 </body>
 </html>
+
 
