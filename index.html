@@ -1,61 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Access Denied</title>
   <style>
-    body {
-      background-color: #f8d7da;
-      color: #721c24;
+    :root {
+      --bg: #f8d7da;
+      --card: #f5c6cb;
+      --border: #f5c2c7;
+      --text: #721c24;
+    }
+
+    /* Make sure it fits any screen */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: var(--bg);
+      color: var(--text);
       font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      box-sizing: border-box;
+    }
+
+    main.container {
+      background-color: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
       text-align: center;
-      padding: 50px;
+      max-width: 700px;
+      width: 100%;
+      box-sizing: border-box;
     }
-    .container {
-      background-color: #f5c6cb;
-      border: 1px solid #f5c2c7;
-      padding: 30px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+
     .logo {
-      max-width: 150px;
+      width: 120px;
+      height: auto;
       margin-bottom: 20px;
     }
+
     h1 {
-      font-size: 2em;
-    }
-    p {
-      font-size: 1.2em;
-    }
-    .user {
-      margin-top: 20px;
+      font-size: 1.8rem;
+      margin: 0 0 12px;
       font-weight: bold;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      font-weight: normal;
+      margin: 12px 0;
+    }
+
+    .important {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .user h2 {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #501319;
+      margin-top: 20px;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    /* Responsive text adjustments */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.4rem; }
+      h2 { font-size: 1.1rem; }
+      .user h2 { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="https://www.akfcs.org/wp-content/uploads/2021/05/abby-kelley-foster-logo.png" alt="Abby Kelley Foster Logo" class="logo">
-    <h1>🚫 Uh-oh! This Chromebook Belongs to Someone Else!</h1>
-    <h2>It looks like you’re trying to sign in on a Chromebook that’s not assigned to you.</h2>
+  <main class="container" role="main">
+    <img src="https://www.akfcs.org/wp-content/uploads/2021/05/abby-kelley-foster-logo.png"
+         alt="Abby Kelley Foster Logo" class="logo" loading="lazy" />
+
+    <h1 class="important">🚫 Uh-oh! This Chromebook Belongs to Someone Else!</h1>
+    <h2>It looks like you’re trying to sign in on a Chromebook that isn’t assigned to you.</h2>
+
     <div class="user">
-      <p id="userInfo"></p>
+      <h2 id="userInfo"></h2>
     </div>
-  </div>
+
+    <h2>💻 Not sure if this Chromebook is yours?</h2>
+    <h2>Please check the label on your device or ask your teacher for help! 😊</h2>
+    <h2>🛠️ Still having trouble signing in? Contact 
+      <a href="mailto:ITsupport@akfcs.org">ITsupport@akfcs.org</a>
+      for help!
+    </h2>
+  </main>
 
   <script>
     const params = new URLSearchParams(window.location.search);
     const user = params.get("user");
+    const userInfo = document.getElementById("userInfo");
+
     if (user) {
-      document.getElementById("userInfo").textContent = `This device is brought to: ${user}`;
+      userInfo.textContent = `This device is assigned to: ${user}`;
     }
   </script>
-
-  <h2>Not sure if this Chromebook is yours?</h2>
-  <h2>💻 Please check the label on your device or ask your teacher for help! 😊</h2>
-  <h2>🛠️ Still having trouble signing in? Contact ITsupport@akfcs.org
- for help!</h2>
 </body>
 </html>
